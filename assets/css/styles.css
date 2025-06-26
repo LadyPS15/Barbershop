@@ -1,0 +1,68 @@
+/* Estilos para secciones de servicios y productos */
+body {
+    background-color: #121212; /* Fondo oscuro global */
+    color: #ffffff; /* Texto claro para contraste */
+}
+
+h2 {
+    text-align: center;
+    color: #4287f5; /* Azul para los títulos */
+    margin-top: 40px;
+    margin-bottom: 20px;
+}
+
+.service-list, .product-list {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    padding: 20px;
+}
+
+.service-item, .product-item {
+    width: 30%;
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    margin: 10px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Estilos del formulario de reserva de citas */
+form {
+    max-width: 500px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+}
+
+form label {
+    font-size: 1em;
+    color: #e0e0e0;
+}
+
+form input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    border: none;
+    font-size: 1em;
+}
+
+form button {
+    width: 100%;
+    padding: 12px;
+    font-size: 1.2em;
+    color: #ffffff;
+    background-color: #4287f5;
+    border: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+form button:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+}
