@@ -18,7 +18,7 @@
                     <li><a href="index.php">Inicio</a></li>
                     <li><a href="#servicios">Servicios</a></li>
                     <li><a href="#productos">Productos</a></li>
-                    <li><a href="admin.php">Panel de Dueño</a></li>
+                    <li><a href="login.php">Panel de Dueño</a></li>
             </ul>
             </nav>
             <div class="content">

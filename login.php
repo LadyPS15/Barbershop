@@ -1,21 +1,19 @@
 <?php
 session_start(); // Iniciar sesión
 
-// Verificar si se envió el formulario de login
 if (isset($_POST['login'])) {
     $username = $_POST['username'];
     $password = $_POST['password'];
 
-    // Credenciales de administrador (esto debería estar en la base de datos en producción)
+    // Establecer las credenciales de admin
     $adminUsername = "admin";
-    $adminPassword = "admin123";
+    $adminPassword = "admin123"; // Asegúrate de tener una contraseña segura en producción
 
-    // Verificar las credenciales
     if ($username === $adminUsername && $password === $adminPassword) {
-        $_SESSION['admin_logged_in'] = true; // Iniciar sesión para el admin
+        $_SESSION['admin_logged_in'] = true;
         header("Location: admin.php"); // Redirigir al panel de administración
     } else {
-        $error = "Credenciales inválidas, intenta de nuevo."; // Mostrar error
+        $error = "Credenciales inválidas, intenta de nuevo.";
     }
 }
 ?>
@@ -28,7 +26,7 @@ if (isset($_POST['login'])) {
 </head>
 <body>
     <h2>Login de Administrador</h2>
-    <?php if (isset($error)) { echo "<p style='color:red;'>$error</p>"; } ?> <!-- Mostrar error si existe -->
+    <?php if (isset($error)) { echo "<p style='color:red;'>$error</p>"; } ?>
     <form action="login.php" method="POST">
         <label for="username">Usuario:</label>
         <input type="text" name="username" required>
