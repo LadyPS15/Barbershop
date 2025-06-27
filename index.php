@@ -46,7 +46,19 @@
 
 <section id="reserva">
     <h2>Reserva tu Cita</h2>
-    <form action="appointments.php" method="POST">
+
+    <!-- Mostrar mensaje de éxito si la cita fue creada -->
+    <?php if (isset($_GET['success']) && $_GET['success'] === 'true'): ?>
+        <p style="color:green;">¡Cita reservada con éxito!</p>
+    <?php endif; ?>
+
+    <!-- Mostrar mensaje de error si ya existe una cita en esa fecha y hora -->
+    <?php if (isset($_GET['error']) && $_GET['error'] === 'true'): ?>
+        <p style="color:red;">Ya existe una cita en esta fecha y hora. Por favor, elige otro horario.</p>
+    <?php endif; ?>
+
+    <!-- Formulario para la reserva de citas -->
+    <form action="views\appointmrnts.php" method="POST">
         <label for="date">Selecciona la fecha:</label>
         <input type="date" name="date" required>
         
@@ -59,5 +71,6 @@
         <button type="submit">Reservar</button>
     </form>
 </section>
+
 
 <?php include 'views/partials/footer.php'; ?> 

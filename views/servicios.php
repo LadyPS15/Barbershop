@@ -1,4 +1,4 @@
-<?php include 'views/partials/header.php'; ?>
+<?php include '/views/partials/header.php'; ?>
 
 <h2>Nuestros Servicios</h2>
 <div class="service-list">
@@ -16,4 +16,4 @@
     </div>
 </div>
 
-<?php include 'views/partials/footer.php'; ?>
+<?php include '/views/partials/footer.php'; ?>

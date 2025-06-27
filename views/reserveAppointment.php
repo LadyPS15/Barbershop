@@ -1,7 +1,7 @@
-<?php include 'views/partials/header.php'; ?>
+<?php include '/views/partials/header.php'; ?>
 
 <h2>Reserva tu Cita</h2>
-<form action="appointments.php" method="POST">
+<form action="/views/appointmrnts.php" method="POST">
     <label for="date">Selecciona la fecha:</label>
     <input type="date" name="date" required>
     
@@ -14,4 +14,4 @@
     <button type="submit">Reservar</button>
 </form>
 
-<?php include 'views/partials/footer.php'; ?>
+<?php include '/views/partials/footer.php'; ?>
