@@ -1,7 +1,6 @@
 <?php include 'views/partials/header.php'; ?>
 
 <link rel="stylesheet" href="assets/css/header.css"> 
-
 <section id="servicios">
     <h2>Nuestros Servicios</h2>
     <div class="service-list">
@@ -71,7 +70,6 @@
         <input type="text" name="client_phone" required placeholder="Tu número de celular">
 
         <label for="barber_id">Selecciona el barbero:</label>
-        <br>
         <select name="barber_id" required>
             <!-- Listar todos los barberos -->
             <?php
@@ -82,28 +80,23 @@
             }
             ?>
         </select>
-        <br>
-        <br>
+
         <label for="date">Selecciona la fecha:</label>
         <input type="date" name="date" required>
 
         <label for="time">Selecciona la hora:</label>
         <input type="time" name="time" required>
-        <br>
+
         <label for="services">Selecciona los servicios:</label>
-        <br>
-        <select name="services[]" multiple required>
-            <!-- Listar todos los servicios disponibles -->
-            <?php
-            $services = getAllServices();
-            foreach ($services as $service) {
-                echo "<option value='{$service['id']}'>{$service['service_name']} - {$service['base_price']} USD</option>";
-            }
-            ?>
-        </select>
-            <br>
-            <br>
-            <br>
+            <select name="services[]" multiple required class="services-select">
+                <!-- Listar todos los servicios disponibles -->
+                <?php
+                $services = getAllServices();
+                foreach ($services as $service) {
+                    echo "<option value='{$service['id']}'>{$service['service_name']} - {$service['base_price']} USD</option>";
+                }
+                ?>
+            </select>
         <button type="submit">Reservar</button>
     </form>
 

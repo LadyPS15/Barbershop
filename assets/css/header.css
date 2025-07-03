@@ -62,8 +62,9 @@ header nav ul li a:hover {
 /* Contenido principal */
 .content {
     text-align: center;
-    max-width: 500px;
-    padding: 20px;
+    max-width: 800px;
+    margin: 0 auto; /* Centra el contenido */
+    padding: 40px;
 }
 
 .content h1 {
@@ -98,4 +99,152 @@ header nav ul li a:hover {
 .btn:hover {
     background-color: #0056b3; /* Azul más oscuro al pasar el mouse */
     transform: scale(1.05); /* Efecto de zoom */
+}
+
+/* Estilos para las secciones de productos y servicios */
+#servicios, #productos {
+    padding: 40px 0;
+    background-color: #1e1e1e;
+}
+
+.service-list, .product-list {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.service-item, .product-item {
+    background-color: #2a2a2a;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    max-width: 300px;
+    text-align: center;
+    width: 100%; /* Asegura que cada item ocupe toda el ancho disponible en pantallas pequeñas */
+}
+
+.service-item img, .product-item img {
+    max-width: 100%;
+    border-radius: 8px;
+    margin-top: 15px;
+}
+
+h3 {
+    color: #fff;
+    margin-top: 15px;
+}
+
+/* Estilos para el formulario de reserva */
+#reserva {
+    padding: 40px 20px;
+    background-color: #222;
+    color: #fff;
+}
+
+#reserva form {
+    max-width: 600px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+input, select {
+    padding: 10px;
+    font-size: 1em;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #333;
+    color: #fff;
+}
+
+button {
+    padding: 12px 25px;
+    font-size: 1.2em;
+    color: #fff;
+    background-color: #4287f5;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+.services-select {
+    width: 100%;
+    height: 150px; /* Ajusta el tamaño según sea necesario */
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #4f4e4e;
+    border-radius: 5px;
+    background-color: #424141;
+    font-size: 16px;
+    box-shadow: 0 2px 4px rgba(255, 255, 255, 0.1);
+    display: block;
+}
+
+.services-select option {
+    padding: 8px;
+    font-size: 14px;
+}
+
+
+/* Media Queries para que el diseño sea responsive */
+@media (max-width: 768px) {
+    header {
+        height: 40vh;
+    }
+
+    .content h1 {
+        font-size: 2.5em; /* Reducir tamaño del título en pantallas pequeñas */
+    }
+
+    .service-list, .product-list {
+        flex-direction: column; /* Cambiar a una columna en lugar de fila */
+        gap: 15px;
+    }
+
+    .service-item, .product-item {
+        max-width: 100%; /* Los elementos de servicio y producto ocuparán el 100% del ancho */
+        padding: 15px;
+    }
+
+    .btn {
+        width: 100%; /* El botón ocupa todo el ancho disponible */
+    }
+
+    #reserva form {
+        padding: 20px;
+    }
+
+    input, select {
+        padding: 8px; /* Reducir el tamaño de los campos de entrada en móviles */
+    }
+
+    button {
+        width: 100%; /* El botón ocupará todo el ancho en móviles */
+    }
+}
+
+@media (max-width: 480px) {
+    .content h1 {
+        font-size: 2em; /* Reducir aún más el tamaño del título */
+    }
+
+    .content p {
+        font-size: 1em; /* Reducir el tamaño del texto en dispositivos muy pequeños */
+    }
+
+    header nav ul {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    header nav ul li a {
+        font-size: 1em; /* Reducir el tamaño de los enlaces del menú */
+    }
 }
