@@ -22,19 +22,22 @@ if (isset($_POST['login'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/css/login.css">
     <title>Login</title>
 </head>
 <body>
-    <h2>Login de Administrador</h2>
-    <?php if (isset($error)) { echo "<p style='color:red;'>$error</p>"; } ?>
-    <form action="login.php" method="POST">
-        <label for="username">Usuario:</label>
-        <input type="text" name="username" required>
-        
-        <label for="password">Contraseña:</label>
-        <input type="password" name="password" required>
-        
-        <button type="submit" name="login">Iniciar sesión</button>
-    </form>
+    <div class="login-container">
+        <h2>Login de Admin</h2>
+        <?php if (isset($error)) { echo "<p class='error'>$error</p>"; } ?>
+        <form action="login.php" method="POST">
+            <label for="username">Usuario:</label>
+            <input type="text" name="username" id="username" required>
+            
+            <label for="password">Contraseña:</label>
+            <input type="password" name="password" id="password" required>
+            
+            <button type="submit" name="login">Iniciar sesión</button>
+        </form>
+    </div>
 </body>
 </html>

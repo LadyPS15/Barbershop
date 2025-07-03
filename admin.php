@@ -29,34 +29,42 @@ $monthlyIncome = getMonthlyIncome();
 
     <h2>Panel de Administración</h2>
 
-    <h3>Clientes Frecuentes</h3>
-    <!-- Tabla de Clientes Frecuentes -->
-<table class="frequent-clients-table">
-    <thead>
-        <tr>
-            <th>Cliente</th>
-            <th>Visitas</th>
-            <th>Acciones</th>
-        </tr>
-    </thead>
-    <tbody>
-        <?php foreach ($frequentClients as $client): ?>
-            <tr>
-                <td><?php echo $client['client_name']; ?></td>
-                <td><?php echo $client['visits']; ?></td>
-                <td>
-                        <a href="">Editar</a> | 
-                        <a href="">Cancelar</a>
-                </td>
-            </tr>
-        <?php endforeach; ?>
-    </tbody>
-</table>
+    <div class="dashboard-container">
+        <!-- Sección de Clientes Frecuentes -->
+        <div class="clients-section">
+            <h3>Clientes Frecuentes</h3>
+            <!-- Tabla de Clientes Frecuentes -->
+            <table class="frequent-clients-table">
+                <thead>
+                    <tr>
+                        <th>Cliente</th>
+                        <th>Visitas</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php foreach ($frequentClients as $client): ?>
+                        <tr>
+                            <td><?php echo $client['client_name']; ?></td>
+                            <td><?php echo $client['visits']; ?></td>
+                            <td>
+                                <a href="#">Editar</a> | 
+                                <a href="#">Cancelar</a>
+                            </td>
+                        </tr>
+                    <?php endforeach; ?>
+                </tbody>
+            </table>
+        </div>
 
-    <h3>Ingresos del Mes</h3>
-    <canvas id="incomeChart" width="400" height="200"></canvas> <!-- Gráfica de ingresos -->
+        <!-- Sección de Ingresos del Mes -->
+        <div class="income-section">
+            <h3>Ingresos del Mes</h3>
+            <canvas id="incomeChart" width="400" height="200"></canvas> <!-- Gráfica de ingresos -->
+        </div>
+    </div>
 
-    <a href="logout.php">Cerrar sesión</a> <!-- Cerrar sesión -->
+    <a href="logout.php" class="logout">Cerrar sesión</a> <!-- Cerrar sesión -->
 
     <script>
         // Crear la gráfica de ingresos del mes utilizando Chart.js
@@ -64,7 +72,7 @@ $monthlyIncome = getMonthlyIncome();
         var incomeChart = new Chart(ctx, {
             type: 'bar',
             data: {
-                labels: ['Ingresos del mes'], // En una implementación más dinámica, aquí podrías agregar los días o semanas del mes
+                labels: ['Ingresos del mes'],
                 datasets: [{
                     label: 'Ingresos',
                     data: [<?php echo $monthlyIncome['total_income']; ?>],
