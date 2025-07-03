@@ -1,18 +1,21 @@
 <?php
-session_start(); // Iniciar sesión
+session_start();
 
 // Verificar si el administrador está autenticado
-if (!isset($_SESSION['admin_logged_in'])) {
-    header("Location: login.php"); // Redirigir al login si no está autenticado
+if (!isset($_SESSION['admin_logged_in'])) { 
+    header("Location: login.php");
     exit();
 }
 
 require_once './controllers/adminController.php'; // Incluir controlador
 
-// Obtener los clientes frecuentes y los ingresos del mes
-$frequentClients = getFrequentClients(); // Llamar a la función para obtener los clientes frecuentes
-$monthlyIncome = getMonthlyIncome();
+// Obtener los clientes frecuentes
+$frequentClients = getFrequentClients(); 
+
+// Obtener los ingresos del mes
+$monthlyIncome = getMonthlyIncome(); 
 ?>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -20,7 +23,7 @@ $monthlyIncome = getMonthlyIncome();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Panel de Administración</title>
     <link rel="stylesheet" href="assets/css/admin.css"> 
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> <!-- Incluir Chart.js para la gráfica -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
     <div class="header">
@@ -45,11 +48,10 @@ $monthlyIncome = getMonthlyIncome();
                 <tbody>
                     <?php foreach ($frequentClients as $client): ?>
                         <tr>
-                            <td><?php echo $client['client_name']; ?></td>
+                            <td><?php echo htmlspecialchars($client['client_name']); ?></td>
                             <td><?php echo $client['visits']; ?></td>
                             <td>
-                                <a href="#">Editar</a> | 
-                                <a href="#">Cancelar</a>
+                                <a href="editarCliente.php?id=<?php echo urlencode($client['id']); ?>">Editar Servicios</a>
                             </td>
                         </tr>
                     <?php endforeach; ?>
@@ -64,7 +66,7 @@ $monthlyIncome = getMonthlyIncome();
         </div>
     </div>
 
-    <a href="logout.php" class="logout">Cerrar sesión</a> <!-- Cerrar sesión -->
+    <a href="logout.php" class="logout">Cerrar sesión</a>
 
     <script>
         // Crear la gráfica de ingresos del mes utilizando Chart.js
